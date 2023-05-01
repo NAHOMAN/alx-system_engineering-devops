@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-# Displays "Best School" 10 times using an until loop.
+# Displays the IP and status code of an Apache log file
 
-count=0
-
-until [ $count -eq 10 ]
-do
-	echo "Best School"
-	(( count++ ))
-done
+awk '{ printf "%s %s\n", $1, $9 }' "apache-access.log" | sort | uniq -c | sort -nr
