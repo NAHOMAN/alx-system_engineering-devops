@@ -33,19 +33,19 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend  selasi-frontend-http
+frontend  nahom-frontend-http
         bind *:80
         mode http
         http-request set-header X-Forwarded-Proto http
-	redirect scheme https code 301 if { hdr(host) -i www.selasi.tech }
-        default_backend selasi-backend
+	redirect scheme https code 301 if { hdr(host) -i www.nahom.tech }
+        default_backend nahom-backend
 
-frontend selasi-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/selasi.tech.pem
+frontend nahom -frontend-https
+        bind *:443 ssl crt /etc/haproxy/certs/nahom.tech.pem
         http-request set-header X-Forwarded-Proto https
-        default_backend selasi-backend
+        default_backend nahom-backend
 
-backend selasi-backend
+backend nahom-backend
         balance roundrobin
-	server 192925-web-01 3.90.70.66
-	server 192925-web-02 100.26.231.45
+	server 192925-web-01 100.26.234.26
+	server 192925-web-02 100.24.242.60
