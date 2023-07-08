@@ -47,5 +47,5 @@ frontend nahom -frontend-https
 
 backend nahom-backend
         balance roundrobin
-	server 192925-web-01 100.26.234.26
-	server 192925-web-02 100.24.242.60
+	server 211587-web-01 100.26.234.26
+	server 211587-web-02 100.24.242.60
